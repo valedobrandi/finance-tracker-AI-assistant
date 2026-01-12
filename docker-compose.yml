@@ -1,0 +1,19 @@
+# docker-compose.yml
+services:
+  finance-tracker-ai-assistant:
+    build: ./backend
+    container_name: finance-tracker-ai-assistant
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+  
+  finance-tracker-frontend:
+    build: ./finance-tracker-frontend
+    container_name: finance-tracker-frontend
+    env_file:
+      - .env
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./finance-tracker-frontend:/app
